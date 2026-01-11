@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entreprise & Contexte</title>
     <link rel="stylesheet" href="css/styles.css">
+    
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
 </head>
 
 <body>
@@ -64,7 +73,10 @@
                     </p>
                 </div>
             </div>
-            <img src="assets/organigramme.png" alt="Organigramme de l'entreprise">
+            
+            <a href="assets/organigramme.png" target="_blank" class="img-link">
+                <img src="assets/organigramme.png" alt="Organigramme de l'entreprise">
+            </a>
         </section>
 
         <div style="text-align: center; margin-top: 60px;">

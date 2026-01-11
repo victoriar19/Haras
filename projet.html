@@ -6,8 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Détails du Projet - Victoria</title>
     <link rel="stylesheet" href="css/styles.css">
+    
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+
     <style>
-        /* --- DESIGN HARMONISÉ : BARRES DE STATUT --- */
         .status-container-box {
             display: flex;
             align-items: center;
@@ -51,7 +60,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Couleurs des points et textes */
         .dot-acquis {
             background: #2ecc71;
             box-shadow: 0 0 10px #2ecc71;
@@ -79,7 +87,6 @@
             color: #e74c3c;
         }
 
-        /* Ajustement pour les AC dans les missions (plus compact) */
         .ac-box {
             padding: 6px 12px;
             background: rgba(0, 0, 0, 0.2);
@@ -102,8 +109,10 @@
 
         <section style="margin-bottom: 50px;">
             <div class="card">
-                <img src="assets/chateau.jpg" alt="chateau"
-                    style="width: 85%; max-width: 900px; display: block; margin: 0 auto; border-radius: 8px;">
+                <a href="assets/chateau.jpg" target="_blank" class="img-link">
+                    <img src="assets/chateau.jpg" alt="chateau"
+                        style="width: 85%; max-width: 900px; display: block; margin: 0 auto; border-radius: 8px;">
+                </a>
                 <p style="margin-top: 15px;">
                     Le projet consiste à installer Internet dans l’ensemble du Haras. <br>Le terrain étant totalement
                     vierge nous avons dû réfléchir à l'installation des éléments nécessaires du début à la fin. <br>
@@ -125,7 +134,7 @@
         </section>
 
 
-        <div class="accordion-item">
+        <div class="accordion-item" id="mission1">
             <button class="accordion-header" aria-expanded="false">
                 <h2>Mission 1 : Prérequis & Gestion de projet </h2>
                 <span class="accordion-icon">+</span>
@@ -147,8 +156,9 @@
                                 techniques. </p>
 
                             <div style="margin-bottom: 15px;">
-                                <a href="assets/prerequis_Reseaux_Haras_v2.pdf"><img src="assets/document_prerequis_v2.png"
-                                        alt="doc"></a>
+                                <a href="assets/prerequis_Reseaux_Haras_v2.pdf" target="_blank" class="img-link">
+                                    <img src="assets/document_prerequis_v2.png" alt="doc">
+                                </a>
                             </div>
 
                             <div class="status-container-box ac-box">
@@ -186,7 +196,9 @@
                                 large en /8 pour permettre une évolutivité du réseau ! </p>
 
                             <div style="margin-bottom: 15px;">
-                                <a href="assets/plan_ip_v2.pdf"><img src="assets/ip_plan_v2.png" alt="doc"></a>
+                                <a href="assets/plan_ip_v2.pdf" target="_blank" class="img-link">
+                                    <img src="assets/ip_plan_v2.png" alt="doc">
+                                </a>
                             </div>
                             <div class="status-container-box ac-box">
                                 <span class="status-label" style="font-size: 0.75rem;">AC21.05 : Identifier les réseaux
@@ -219,9 +231,9 @@
                                 points d’arrivée.
                             <div class="carousel">
                                 <div class="carousel-track">
-                                    <img src="assets/chambre.jpg" alt="fibre 1">
-                                    <img src="assets/chambre_2.jpg" alt="fibre 2">
-                                    <img src="assets/chambre_3.jpg" alt="fibre 3">
+                                    <a href="assets/chambre.jpg" target="_blank"><img src="assets/chambre.jpg" alt="fibre 1"></a>
+                                    <a href="assets/chambre_2.jpg" target="_blank"><img src="assets/chambre_2.jpg" alt="fibre 2"></a>
+                                    <a href="assets/chambre_3.jpg" target="_blank"><img src="assets/chambre_3.jpg" alt="fibre 3"></a>
                                 </div>
                                 <button class="carousel-btn prev" aria-label="Précédent">❮</button>
                                 <button class="carousel-btn next" aria-label="Suivant">❯</button>
@@ -270,9 +282,9 @@
                         <div class="card">
                             <div class="carousel">
                                 <div class="carousel-track">
-                                    <img src="assets/mur.jpg" alt="mur">
-                                    <img src="assets/meuble.jpg" alt="meuble">
-                                    <img src="assets/meuble_2.jpg" alt="meuble">
+                                    <a href="assets/mur.jpg" target="_blank"><img src="assets/mur.jpg" alt="mur"></a>
+                                    <a href="assets/meuble.jpg" target="_blank"><img src="assets/meuble.jpg" alt="meuble"></a>
+                                    <a href="assets/meuble_2.jpg" target="_blank"><img src="assets/meuble_2.jpg" alt="meuble"></a>
                                 </div>
                                 <button class="carousel-btn prev" aria-label="Précédent">❮</button>
                                 <button class="carousel-btn next" aria-label="Suivant">❯</button>
@@ -315,7 +327,7 @@
 
 
 
-        <div class="accordion-item">
+        <div class="accordion-item" id="mission2">
             <button class="accordion-header" aria-expanded="true">
                 <h2>Mission 2 : Plan Wifi intérieur : Configuration et installation</h2>
                 <span class="accordion-icon">+</span>
@@ -357,7 +369,9 @@
                             </p>
 
                             <div style="margin-bottom: 15px;">
-                                <a href="assets/plan_fibre_v2.png"><img src="assets/plan_fibre_v2.png" alt="doc"></a>
+                                <a href="assets/plan_fibre_v2.png" target="_blank" class="img-link">
+                                    <img src="assets/plan_fibre_v2.png" alt="doc">
+                                </a>
                                 <p style="font-style: italic; color: var(--accent); font-size: 0.85rem;">→ Cette tâche
                                     m’a permis de développer mes compétences techniques sur de nouveaux équipements,
                                     tout en comprenant l’importance de la supervision et de la
@@ -375,7 +389,7 @@
                                 </div>
                             </div>
                             <div class="status-container-box ac-box">
-                                <span class="status-label" style="font-size: 0.75rem;">AC22.03 Mettre en place une
+                                <span class="status-label" style="font-size: 0.75rem;">AC22.03 Mettre en place une
                                     connexion multi-site via un réseau opérateur</span>
                                 <div class="status-indicator">
                                     <span class="status-dot dot-acquis"></span>
@@ -404,8 +418,8 @@
                             <div class="card">
                                 <div class="carousel">
                                     <div class="carousel-track">
-                                        <img src="assets/baie.jpg" alt="baie">
-                                        <img src="assets/baie_v2.jpg" alt="baie">
+                                        <a href="assets/baie.jpg" target="_blank"><img src="assets/baie.jpg" alt="baie"></a>
+                                        <a href="assets/baie_v2.jpg" target="_blank"><img src="assets/baie_v2.jpg" alt="baie"></a>
                                     </div>
                                     <button class="carousel-btn prev" aria-label="Précédent">❮</button>
                                     <button class="carousel-btn next" aria-label="Suivant">❯</button>
@@ -425,7 +439,8 @@
                                     jarretières fibre.
                                     Et ce qui a par la même occasion engendré des problèmes : notamment au niveau des
                                     fibres torsadées. <br> Les fibres étaient torsadées deux fois, donc elles
-                                    "s’annulait" et étaient devenues des fibres droites. <br> Nous avons alors enlevé une
+                                    "s’annulaient" et étaient devenues des fibres droites. <br> Nous avons alors enlevé
+                                    une
                                     torsade et cela a réglé notre problème.
                                 </p>
                             </div>
@@ -439,7 +454,7 @@
                                 </div>
                             </div>
                             <div class="status-container-box ac-box">
-                                <span class="status-label" style="font-size: 0.75rem;">AC22.02 Mettre en place un accès
+                                <span class="status-label" style="font-size: 0.75rem;">AC22.02 Mettre en place un accès
                                     distant sécurisé</span>
                                 <div class="status-indicator">
                                     <span class="status-dot dot-acquis"></span>
@@ -465,7 +480,9 @@
                                 compromis entre performance du réseau et contraintes esthétiques.</p>
 
                             <div style="margin-bottom: 15px;">
-                                <a href="assets/plan_wifi_v2.png"><img src="assets/plan_wifi_v2.png" alt="doc"></a>
+                                <a href="assets/plan_wifi_v2.png" target="_blank" class="img-link">
+                                    <img src="assets/plan_wifi_v2.png" alt="doc">
+                                </a>
                                 <p style="font-style: italic; color: var(--accent); font-size: 0.85rem;">→ Cette tâche
                                     démontre ma capacité à analyser une zone de couverture et à m'adapter à des
                                     contraintes réelles. <br> Elle m’a permis de mieux comprendre le fonctionnement et
@@ -489,8 +506,6 @@
                         </div>
 
 
-
-
                         <div style="margin-bottom: 25px;">
                             <h4>Tâche 4 : Configuration des bornes Wifi</h4>
                             <p>J'ai provisionné les bornes wifi sur un omnivista pour pouvoir garder un accès
@@ -501,7 +516,7 @@
                                 pour
                                 les invités. </p>
                             <div class="status-container-box ac-box">
-                                <span class="status-label" style="font-size: 0.75rem;">AC22.02 Mettre en place un accès
+                                <span class="status-label" style="font-size: 0.75rem;">AC22.02 Mettre en place un accès
                                     distant sécurisé</span>
                                 <div class="status-indicator">
                                     <span class="status-dot dot-acquis"></span>
@@ -525,8 +540,6 @@
                         </div>
 
 
-
-
                         <div style="margin-bottom: 25px;">
                             <h4>Tâche 5 : Installation des bornes Wifi</h4>
                             <p>A première vue cela semble plutôt simple car nous devions en théorie juste suivre le plan
@@ -536,14 +549,15 @@
                                 tirer les câbles comme prévu. <br> De plus, par manque de temps et de coordination une
                                 borne s'est retrouvée derrière un réfrigérateur, sauf que ce frigo est directement dans le
                                 meuble. <br> Cela n'a pas causé de problème de couverture car nous avions orientée la
-                                borne de façon à ce qu'elle ne se retrouve pas orienté face au frigo. <br> Cependant,
+                                borne de façon à ce qu'elle ne se retrouve pas orientée face au frigo. <br> Cependant,
                                 d'un
                                 point de vue pratique, si un jour cette borne venait à avoir besoin d'être dépannée ou
                                 remplacée, cela sera très délicat. </p>
 
                             <p> Cependant, travailler en équipe comporte toujours des imprévus. En effet lors de
                                 l'installation des câbles Ethernet par les électriciens, certains employés
-                                avaient tiré les câbles mais n'avaient pas mis les noyaux ou bouts des câbles. (Comme sur la
+                                avaient tiré les câbles mais n'avaient pas mis les noyaux ou bouts des câbles. (Comme
+                                sur la
                                 dernière image ci-dessous)<br> Ce qui nous a
                                 alors retardé lors du déploiement des bornes et nous a obligé à quelques jours plus
                                 tard. <br>
@@ -555,11 +569,11 @@
                         <div class="card">
                             <div class="carousel">
                                 <div class="carousel-track">
-                                    <img src="assets/plombier.jpg" alt="meuble">
-                                    <img src="assets/plombier_v2.jpg" alt="meuble">
-                                    <img src="assets/plombier_v3.jpg" alt="meuble">
-                                    <img src="assets/noeud.jpg" alt="meuble">
-                                    <img src="assets/noeud_v2.jpg" alt="meuble">
+                                    <a href="assets/plombier.jpg" target="_blank"><img src="assets/plombier.jpg" alt="meuble"></a>
+                                    <a href="assets/plombier_v2.jpg" target="_blank"><img src="assets/plombier_v2.jpg" alt="meuble"></a>
+                                    <a href="assets/plombier_v3.jpg" target="_blank"><img src="assets/plombier_v3.jpg" alt="meuble"></a>
+                                    <a href="assets/noeud.jpg" target="_blank"><img src="assets/noeud.jpg" alt="meuble"></a>
+                                    <a href="assets/noeud_v2.jpg" target="_blank"><img src="assets/noeud_v2.jpg" alt="meuble"></a>
                                 </div>
                                 <button class="carousel-btn prev" aria-label="Précédent">❮</button>
                                 <button class="carousel-btn next" aria-label="Suivant">❯</button>
@@ -575,7 +589,8 @@
                             </div>
                             <p style="font-style: italic; color: var(--accent); font-size: 0.85rem; margin-top: 10px;">
                                 → Concrètement, j'ai appris qu'un déploiement WiFi ne se résume pas à suivre un plan
-                                théorique. Il faut constamment s'adapter aux contraintes terrain. <br>L'orientation de la borne
+                                théorique. Il faut constamment s'adapter aux contraintes terrain. <br>L'orientation de
+                                la borne
                                 derrière le réfrigérateur m'a permis de comprendre l'importance de la directivité des
                                 antennes et l'impact de l'environnement sur la propagation du signal. <br> Cette
                                 expérience m'a également sensibilisé à l'importance de la coordination avec les autres
@@ -599,10 +614,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
 
         <div class="card" style="border-left: 5px solid var(--accent); background: var(--bg-surface-alt);">
             <h3>Analyse des compétences mobilisées</h3>

@@ -1,9 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. THÈME
     const toggleBtn = document.getElementById('theme-toggle');
     const root = document.documentElement;
     const iconSpan = toggleBtn ? toggleBtn.querySelector('.icon') : null;
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme) {
+        root.setAttribute('data-theme', savedTheme);
+        if (iconSpan) {
+            iconSpan.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        }
+    }
 
     if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
@@ -15,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. ACCORDÉON
     const accordions = document.querySelectorAll('.accordion-header');
     accordions.forEach(header => {
         header.addEventListener('click', () => {
@@ -33,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. CARROUSEL (SWIPE)
     const carousels = document.querySelectorAll('.carousel');
+    
     carousels.forEach(carousel => {
         const track = carousel.querySelector('.carousel-track');
         const slides = Array.from(track.children);
@@ -46,16 +52,39 @@ document.addEventListener('DOMContentLoaded', () => {
             track.style.transform = `translateX(-${index * 100}%)`;
         };
 
-        nextBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Empêche l'accordéon de réagir
-            index = (index + 1) % slides.length;
-            updateSlide();
-        });
+        if (nextBtn && prevBtn) {
+            
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault(); 
+                e.stopPropagation(); 
+                
+                index = (index + 1) % slides.length;
+                updateSlide();
+            });
 
-        prevBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            index = (index - 1 + slides.length) % slides.length;
-            updateSlide();
-        });
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation(); 
+                
+                index = (index - 1 + slides.length) % slides.length;
+                updateSlide();
+            });
+        }
     });
+
+    const hash = window.location.hash;
+    if (hash) {
+        const targetElement = document.querySelector(hash);
+        if (targetElement) {
+            const btn = targetElement.querySelector('.accordion-header');
+            
+            if (btn && btn.getAttribute('aria-expanded') === 'false') {
+                btn.click();
+            }
+            
+            setTimeout(() => {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+    }
 });
